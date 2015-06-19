@@ -16,6 +16,7 @@
 		D93C52D41B22084D00E72CF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93C52D31B22084D00E72CF7 /* Images.xcassets */; };
 		D93C52D71B22084D00E72CF7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93C52D51B22084D00E72CF7 /* LaunchScreen.xib */; };
 		D93C52E31B22084D00E72CF7 /* LQIndicoAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93C52E21B22084D00E72CF7 /* LQIndicoAPITests.m */; };
+		D9BE3DA61B34ACFB0075A7D2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9BE3DA51B34ACFB0075A7D2 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D93C52DC1B22084D00E72CF7 /* LQIndicoAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LQIndicoAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93C52E11B22084D00E72CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D93C52E21B22084D00E72CF7 /* LQIndicoAPITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQIndicoAPITests.m; sourceTree = "<group>"; };
+		D9BE3DA51B34ACFB0075A7D2 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				D93C52CB1B22084D00E72CF7 /* AppDelegate.m */,
 				D93C52CD1B22084D00E72CF7 /* ViewController.h */,
 				D93C52CE1B22084D00E72CF7 /* ViewController.m */,
+				D9BE3DA51B34ACFB0075A7D2 /* ViewController.xib */,
 				D93C52D31B22084D00E72CF7 /* Images.xcassets */,
 				D93C52D51B22084D00E72CF7 /* LaunchScreen.xib */,
 				D93C52C61B22084D00E72CF7 /* Supporting Files */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D93C52D71B22084D00E72CF7 /* LaunchScreen.xib in Resources */,
+				D9BE3DA61B34ACFB0075A7D2 /* ViewController.xib in Resources */,
 				D93C52D41B22084D00E72CF7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
