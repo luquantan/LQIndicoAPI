@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD0D2D0407546CEF95FFE97D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFCB69A1650722C54773A48 /* libPods.a */; };
 		D913BED01B220B69007BBFAD /* LQIndicoEndpoints.m in Sources */ = {isa = PBXBuildFile; fileRef = D913BECF1B220B69007BBFAD /* LQIndicoEndpoints.m */; };
+		D913BED41B222265007BBFAD /* LQNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D913BED31B222265007BBFAD /* LQNetworkManager.m */; };
 		D93C52C91B22084D00E72CF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D93C52C81B22084D00E72CF7 /* main.m */; };
 		D93C52CC1B22084D00E72CF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D93C52CB1B22084D00E72CF7 /* AppDelegate.m */; };
 		D93C52CF1B22084D00E72CF7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93C52CE1B22084D00E72CF7 /* ViewController.m */; };
@@ -33,6 +34,8 @@
 		CDBE12DCCF6C96A00591BF65 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D913BECE1B220B69007BBFAD /* LQIndicoEndpoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQIndicoEndpoints.h; path = "Indico Endpoint/LQIndicoEndpoints.h"; sourceTree = "<group>"; };
 		D913BECF1B220B69007BBFAD /* LQIndicoEndpoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQIndicoEndpoints.m; path = "Indico Endpoint/LQIndicoEndpoints.m"; sourceTree = "<group>"; };
+		D913BED21B222265007BBFAD /* LQNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQNetworkManager.h; path = Networking/LQNetworkManager.h; sourceTree = "<group>"; };
+		D913BED31B222265007BBFAD /* LQNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQNetworkManager.m; path = Networking/LQNetworkManager.m; sourceTree = "<group>"; };
 		D93C52C31B22084D00E72CF7 /* LQIndicoAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LQIndicoAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93C52C71B22084D00E72CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D93C52C81B22084D00E72CF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +95,15 @@
 			name = "Indico Endpoint";
 			sourceTree = "<group>";
 		};
+		D913BED11B22223B007BBFAD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D913BED21B222265007BBFAD /* LQNetworkManager.h */,
+				D913BED31B222265007BBFAD /* LQNetworkManager.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		D93C52BA1B22084C00E72CF7 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 		D93C52C51B22084D00E72CF7 /* LQIndicoAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D913BED11B22223B007BBFAD /* Networking */,
 				D913BECD1B220B39007BBFAD /* Indico Endpoint */,
 				D93C52CA1B22084D00E72CF7 /* AppDelegate.h */,
 				D93C52CB1B22084D00E72CF7 /* AppDelegate.m */,
@@ -291,6 +304,7 @@
 				D93C52CF1B22084D00E72CF7 /* ViewController.m in Sources */,
 				D913BED01B220B69007BBFAD /* LQIndicoEndpoints.m in Sources */,
 				D93C52CC1B22084D00E72CF7 /* AppDelegate.m in Sources */,
+				D913BED41B222265007BBFAD /* LQNetworkManager.m in Sources */,
 				D93C52C91B22084D00E72CF7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
