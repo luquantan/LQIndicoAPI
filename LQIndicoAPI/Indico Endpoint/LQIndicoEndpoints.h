@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const kIndicoEndpointBaseURL = @"https://apiv2.indico.io/";
+static NSString * const kIndicoEndpointAPIKey = @"56a69fcc2d30ad42bffee46159d3951e";
+#warning You need to register for a free public API key at https://indico.io/register
+
+//API's
+static NSString * const kIndicoTextTags = @"texttags?";
+static NSString * const kIndicoSentiment = @"sentiment?";
+static NSString * const kIndicoLanguage = @"language?";
+static NSString * const kIndicoPolitical = @"political?";
+static NSString * const kIndicoFacialEmotionRecognition = @"fer?";
+static NSString * const kIndicoImageFeatures = @"imagefeatures?";
+static NSString * const kIndicoFacialFeatures = @"facialfeatures?";
+
 @interface LQIndicoEndpoints : NSObject
 
 // For more information on these APIs provided by Indico, visit https://docs.indico.io/v2.0/docs
