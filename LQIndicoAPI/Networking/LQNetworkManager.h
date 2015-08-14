@@ -14,10 +14,35 @@ typedef void (^LQDictionaryCompletionBlock)(NSDictionary *result, NSError *error
 
 + (instancetype)sharedManager;
 
-- (void)textTagsWithText:(NSString *)text completionHandler:(LQDictionaryCompletionBlock)completion;
+/**
+ *  NOTE:
+ *  These function take an array of items so that I can implement the batch requests later.
+ *  However, you should only send one item to the array in each request for now.
+ *
+ */
 
-- (void)sentimentAnalysisWithText:(NSString *)text completionHandler:(LQDictionaryCompletionBlock)completion;
-- (void)languageAnalysisWithText:(NSString *)text completionHandler:(LQDictionaryCompletionBlock)completion;
-- (void)politicalAnalysisWithText:(NSString *)text completionHandler:(LQDictionaryCompletionBlock)completion;
+//---------------------------------------------------------------------------------------------------------------
+// Text Analysis
+//---------------------------------------------------------------------------------------------------------------
+
+- (void)sentimentAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)highQualitySentimentAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)textTagsAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)languageAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)politicalAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)keywordsAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)namedEntitiesAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)twitterEnagagementAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion;
+
+//---------------------------------------------------------------------------------------------------------------
+// Image Analysis
+//---------------------------------------------------------------------------------------------------------------
+
+- (void)facialEmotionRecognitionAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)imageFeaturesAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)facialFeatureAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)facialLocalizationAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion;
+- (void)contentFilteringAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion;
+
 
 @end
