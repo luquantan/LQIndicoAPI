@@ -16,6 +16,7 @@
 		D93C52D41B22084D00E72CF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93C52D31B22084D00E72CF7 /* Images.xcassets */; };
 		D93C52D71B22084D00E72CF7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93C52D51B22084D00E72CF7 /* LaunchScreen.xib */; };
 		D93C52E31B22084D00E72CF7 /* LQIndicoAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93C52E21B22084D00E72CF7 /* LQIndicoAPITests.m */; };
+		D98651691B7E87D900357E6C /* UIImage+LQ.m in Sources */ = {isa = PBXBuildFile; fileRef = D98651681B7E87D900357E6C /* UIImage+LQ.m */; };
 		D9BE3DA61B34ACFB0075A7D2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9BE3DA51B34ACFB0075A7D2 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		D93C52DC1B22084D00E72CF7 /* LQIndicoAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LQIndicoAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93C52E11B22084D00E72CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D93C52E21B22084D00E72CF7 /* LQIndicoAPITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQIndicoAPITests.m; sourceTree = "<group>"; };
+		D98651671B7E87D900357E6C /* UIImage+LQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+LQ.h"; path = "Categories/UIImage+LQ.h"; sourceTree = "<group>"; };
+		D98651681B7E87D900357E6C /* UIImage+LQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+LQ.m"; path = "Categories/UIImage+LQ.m"; sourceTree = "<group>"; };
 		D9BE3DA51B34ACFB0075A7D2 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +132,7 @@
 		D93C52C51B22084D00E72CF7 /* LQIndicoAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D98651661B7E87AD00357E6C /* Categories */,
 				D913BED11B22223B007BBFAD /* Networking */,
 				D913BECD1B220B39007BBFAD /* Indico Endpoint */,
 				D93C52CA1B22084D00E72CF7 /* AppDelegate.h */,
@@ -167,6 +171,15 @@
 				D93C52E11B22084D00E72CF7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D98651661B7E87AD00357E6C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D98651671B7E87D900357E6C /* UIImage+LQ.h */,
+				D98651681B7E87D900357E6C /* UIImage+LQ.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +320,7 @@
 			files = (
 				D93C52CF1B22084D00E72CF7 /* ViewController.m in Sources */,
 				D913BED01B220B69007BBFAD /* LQIndicoEndpoints.m in Sources */,
+				D98651691B7E87D900357E6C /* UIImage+LQ.m in Sources */,
 				D93C52CC1B22084D00E72CF7 /* AppDelegate.m in Sources */,
 				D913BED41B222265007BBFAD /* LQNetworkManager.m in Sources */,
 				D93C52C91B22084D00E72CF7 /* main.m in Sources */,
