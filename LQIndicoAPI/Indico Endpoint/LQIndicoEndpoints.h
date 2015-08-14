@@ -12,31 +12,51 @@ static NSString * const kIndicoEndpointBaseURL = @"https://apiv2.indico.io/";
 static NSString * const kIndicoEndpointAPIKey = @"56a69fcc2d30ad42bffee46159d3951e";
 #warning You need to register for a free public API key at https://indico.io/register
 
-//API's
-static NSString * const kIndicoTextTags = @"texttags?";
+//APIs for text analysis
 static NSString * const kIndicoSentiment = @"sentiment?";
+static NSString * const kIndicoSentimenHighQuality = @"sentimenthq?";
+static NSString * const kIndicoTextTags = @"texttags?";
 static NSString * const kIndicoLanguage = @"language?";
 static NSString * const kIndicoPolitical = @"political?";
+static NSString * const kIndicoKeywords = @"keywords?"; //TODO: not implemented yet
+static NSString * const kIndicoNamedEntities = @"namedentitites?"; //TODO: not implemented yet
+static NSString * const kIndicoTwitterEngagement = @"twitterengagement?"; //TODO: not implemented yet
+
+//APIs for image analysis
 static NSString * const kIndicoFacialEmotionRecognition = @"fer?";
 static NSString * const kIndicoImageFeatures = @"imagefeatures?";
 static NSString * const kIndicoFacialFeatures = @"facialfeatures?";
+static NSString * const kIndicoFacialLocalization = @"faciallocalization";
+static NSString * const kIndicoContentFiltering = @"contentfiltering";
+
+//TODO: There are batch endpoints that I will not implement yet for now.
 
 @interface LQIndicoEndpoints : NSObject
 
 // For more information on these APIs provided by Indico, visit https://docs.indico.io/v2.0/docs
 
 
-/**
- *  Tag unstructured text with topics from a wide range of topics
- *  For the full list of topics, visit https://docs.indico.io/v2.0/docs/text-tags
- */
-+ (NSURL *)textTagsEndpoint;
+//---------------------------------------------------------------------------------------------------------------
+// Text Analysis
+//---------------------------------------------------------------------------------------------------------------
 
 /**
  *  Determine if the overall sentiment in the text is positive or negative
  *
  */
 + (NSURL *)sentimentEndpoint;
+
+/**
+ *  Determine if the overall sentiment in the text is positive or negative(high quality)
+ *
+ */
++ (NSURL *)sentimentHQEndpoint;
+
+/**
+ *  Tag unstructured text with topics from a wide range of topics
+ *  For the full list of topics, visit https://docs.indico.io/v2.0/docs/text-tags
+ */
++ (NSURL *)textTagsEndpoint;
 
 /**
  *  Predict the language of a given piece of text
@@ -50,6 +70,27 @@ static NSString * const kIndicoFacialFeatures = @"facialfeatures?";
  */
 + (NSURL *)politicalEndpoint;
 
+/**
+ *  Extract important words from the text
+ *
+ */
++ (NSURL *)keywordEndpoint;
+
+/**
+ *  Identify the names of people, places, and organizations in a phrase or document
+ *
+ */
++ (NSURL *)namedEntitiesEndpoint;
+
+/**
+ *  Predict twitter audience engagement for a given tweet
+ *
+ */
++ (NSURL *)twitterEngagementEndpoint;
+
+//---------------------------------------------------------------------------------------------------------------
+// Image Analysis
+//---------------------------------------------------------------------------------------------------------------
 
 /**
  *  Extract the emotions from an image of a face
@@ -69,5 +110,16 @@ static NSString * const kIndicoFacialFeatures = @"facialfeatures?";
  */
 + (NSURL *)facialFeatureEndpoint;
 
+/**
+ *  Returns a list of face bounding boxes founds for a given image
+ *
+ */
++ (NSURL *)facialLocalizationEndpoint;
+
+/**
+ *  Determines whether or not an image contains mature content
+ *
+ */
++ (NSURL *)contentFilteringEndpoint;
 
 @end

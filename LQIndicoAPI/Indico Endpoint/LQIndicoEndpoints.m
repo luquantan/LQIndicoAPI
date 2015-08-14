@@ -13,12 +13,20 @@
 
 #pragma mark - Endpoints
 
-+ (NSURL *)textTagsEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoTextTags]];
-}
+//---------------------------------------------------------------------------------------------------------------
+// Text Analysis
+//---------------------------------------------------------------------------------------------------------------
 
 + (NSURL *)sentimentEndpoint {
     return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoSentiment]];
+}
+
++ (NSURL *)sentimentHQEndpoint {
+    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoSentimenHighQuality]];
+}
+
++ (NSURL *)textTagsEndpoint {
+    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoTextTags]];
 }
 
 + (NSURL *)languageEndpoint {
@@ -28,6 +36,22 @@
 + (NSURL *)politicalEndpoint {
     return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoPolitical]];
 }
+
++ (NSURL *)keywordEndpoint {
+    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoKeywords]];
+}
+
++ (NSURL *)namedEntitiesEndpoint {
+    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoNamedEntities]];
+}
+
++ (NSURL *)twitterEngagementEndpoint {
+    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoTwitterEngagement]];
+}
+
+//---------------------------------------------------------------------------------------------------------------
+// Image Analysis
+//---------------------------------------------------------------------------------------------------------------
 
 + (NSURL *)facialEmotionRecognitionEndpoint {
     return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoFacialEmotionRecognition]];
@@ -41,10 +65,18 @@
     return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoFacialFeatures]];
 }
 
++ (NSURL *)facialLocalizationEndpoint {
+    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoFacialLocalization]];
+}
+
++ (NSURL *)contentFilteringEndpoint{
+    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoTwitterEngagement]];
+}
+
 #pragma mark - Helper Method
 
 + (NSString *)urlStringFor:(NSString *)api {
-    return [NSString stringWithFormat:@"%@%@key=%@", kIndicoEndpointBaseURL, api, kIndicoEndpointAPIKey];
+    return [NSString stringWithFormat:@"%@key=%@", api, kIndicoEndpointAPIKey];
 }
 
 @end
