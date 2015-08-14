@@ -44,49 +44,49 @@ static NSString * const kIndicoContentFiltering = @"contentfiltering";
  *  Determine if the overall sentiment in the text is positive or negative
  *
  */
-+ (NSURL *)sentimentEndpoint;
++ (NSString *)sentimentEndpoint;
 
 /**
  *  Determine if the overall sentiment in the text is positive or negative(high quality)
  *
  */
-+ (NSURL *)sentimentHQEndpoint;
++ (NSString *)sentimentHQEndpoint;
 
 /**
  *  Tag unstructured text with topics from a wide range of topics
  *  For the full list of topics, visit https://docs.indico.io/v2.0/docs/text-tags
  */
-+ (NSURL *)textTagsEndpoint;
++ (NSString *)textTagsEndpoint;
 
 /**
  *  Predict the language of a given piece of text
  *  For the full list of languages, visit https://docs.indico.io/v2.0/docs/language-1
  */
-+ (NSURL *)languageEndpoint;
++ (NSString *)languageEndpoint;
 
 /**
  *  Predict the political alignment of a given piece of text
  *  The political groups included are Conservative, Greem, Liberal and Libertarian
  */
-+ (NSURL *)politicalEndpoint;
++ (NSString *)politicalEndpoint;
 
 /**
  *  Extract important words from the text
  *
  */
-+ (NSURL *)keywordEndpoint;
++ (NSString *)keywordEndpoint;
 
 /**
  *  Identify the names of people, places, and organizations in a phrase or document
  *
  */
-+ (NSURL *)namedEntitiesEndpoint;
++ (NSString *)namedEntitiesEndpoint;
 
 /**
  *  Predict twitter audience engagement for a given tweet
  *
  */
-+ (NSURL *)twitterEngagementEndpoint;
++ (NSString *)twitterEngagementEndpoint;
 
 //---------------------------------------------------------------------------------------------------------------
 // Image Analysis
@@ -96,30 +96,30 @@ static NSString * const kIndicoContentFiltering = @"contentfiltering";
  *  Extract the emotions from an image of a face
  *  The emotions included are: Angry, Sad, Neutral, Surprise, Fear, Happy
  */
-+ (NSURL *)facialEmotionRecognitionEndpoint;
++ (NSString *)facialEmotionRecognitionEndpoint;
 
 /**
  *  Convert images from pixel arrrays to meaningful feature vectors
  *
  */
-+ (NSURL *)imageFeaturesEndpoint;
++ (NSString *)imageFeaturesEndpoint;
 
 /**
  *  Convert images of faces from pixel arrays to meaningful feature vectors
  *
  */
-+ (NSURL *)facialFeatureEndpoint;
++ (NSString *)facialFeatureEndpoint;
 
 /**
  *  Returns a list of face bounding boxes founds for a given image
  *
  */
-+ (NSURL *)facialLocalizationEndpoint;
++ (NSString *)facialLocalizationEndpoint;
 
 /**
  *  Determines whether or not an image contains mature content
  *
  */
-+ (NSURL *)contentFilteringEndpoint;
++ (NSString *)contentFilteringEndpoint;
 
 @end

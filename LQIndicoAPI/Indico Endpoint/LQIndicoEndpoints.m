@@ -17,60 +17,60 @@
 // Text Analysis
 //---------------------------------------------------------------------------------------------------------------
 
-+ (NSURL *)sentimentEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoSentiment]];
++ (NSString *)sentimentEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoSentiment];
 }
 
-+ (NSURL *)sentimentHQEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoSentimenHighQuality]];
++ (NSString *)sentimentHQEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoSentimenHighQuality];
 }
 
-+ (NSURL *)textTagsEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoTextTags]];
++ (NSString *)textTagsEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoTextTags];
 }
 
-+ (NSURL *)languageEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoLanguage]];
++ (NSString *)languageEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoLanguage];
 }
 
-+ (NSURL *)politicalEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoPolitical]];
++ (NSString *)politicalEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoPolitical];
 }
 
-+ (NSURL *)keywordEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoKeywords]];
++ (NSString *)keywordEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoKeywords];
 }
 
-+ (NSURL *)namedEntitiesEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoNamedEntities]];
++ (NSString *)namedEntitiesEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoNamedEntities];
 }
 
-+ (NSURL *)twitterEngagementEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoTwitterEngagement]];
++ (NSString *)twitterEngagementEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoTwitterEngagement];
 }
 
 //---------------------------------------------------------------------------------------------------------------
 // Image Analysis
 //---------------------------------------------------------------------------------------------------------------
 
-+ (NSURL *)facialEmotionRecognitionEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoFacialEmotionRecognition]];
++ (NSString *)facialEmotionRecognitionEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoFacialEmotionRecognition];
 }
 
-+ (NSURL *)imageFeaturesEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoImageFeatures]];
++ (NSString *)imageFeaturesEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoImageFeatures];
 }
 
-+ (NSURL *)facialFeatureEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoFacialFeatures]];
++ (NSString *)facialFeatureEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoFacialFeatures];
 }
 
-+ (NSURL *)facialLocalizationEndpoint {
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoFacialLocalization]];
++ (NSString *)facialLocalizationEndpoint {
+    return [LQIndicoEndpoints urlStringFor:kIndicoFacialLocalization];
 }
 
-+ (NSURL *)contentFilteringEndpoint{
-    return [NSURL URLWithString:[LQIndicoEndpoints urlStringFor:kIndicoTwitterEngagement]];
++ (NSString *)contentFilteringEndpoint{
+    return [LQIndicoEndpoints urlStringFor:kIndicoTwitterEngagement];
 }
 
 #pragma mark - Helper Method
