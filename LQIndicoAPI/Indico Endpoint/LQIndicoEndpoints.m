@@ -9,18 +9,6 @@
 #import "AFNetworking/AFNetworking.h"
 #import "LQIndicoEndpoints.h"
 
-static NSString * const kIndicoEndpointAPIKey = @"API_KEY_HERE";
-static NSString * const kIndicoEndpointBaseURL = @"https://apiv2.indico.io/";
-
-//API's
-static NSString * const kIndicoTextTags = @"texttags?";
-static NSString * const kIndicoSentiment = @"sentiment?";
-static NSString * const kIndicoLanguage = @"language?";
-static NSString * const kIndicoPolitical = @"political?";
-static NSString * const kIndicoFacialEmotionRecognition = @"fer?";
-static NSString * const kIndicoImageFeatures = @"imagefeatures?";
-static NSString * const kIndicoFacialFeatures = @"facialfeatures?";
-
 @implementation LQIndicoEndpoints
 
 #pragma mark - Endpoints
