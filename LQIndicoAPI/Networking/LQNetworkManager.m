@@ -13,6 +13,7 @@
 
 @interface LQNetworkManager()
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
+@property (nonatomic, strong) NSString *apiKey;
 @end
 
 @implementation LQNetworkManager
@@ -34,8 +35,16 @@
         _manager.responseSerializer = [AFJSONResponseSerializer serializer];
         //Indico API response content-type is text/html
         [_manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"text/html", nil]];
+        _apiKey = nil;
     }
     return self;
+}
+
+- (NSString *)apiKey {
+    if (!_apiKey) {
+        NSAssert(NO, @"You need to register for a free public API key at https://indico.io/register");
+    }
+    return _apiKey;
 }
 
 #pragma mark - Requests
@@ -44,9 +53,9 @@
 // Text Analysis
 //---------------------------------------------------------------------------------------------------------------
 
-- (void)sentimentAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion {
-    NSDictionary *data = @{@"data" : [texts firstObject]};
-    [self.manager POST:[LQIndicoEndpoints sentimentEndpoint]
+- (void)sentimentAnalysis:(NSString *)text completionHandler:(LQDictionaryCompletionBlock)completion {
+    NSDictionary *data = @{@"data" : text};
+    [self.manager POST:[self urlStringFor:kIndicoSentiment]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -60,58 +69,9 @@
                }];
 }
 
-- (void)highQualitySentimentAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion {
-    NSDictionary *data = @{@"data" : [texts firstObject]};
-    [self.manager POST:[LQIndicoEndpoints sentimentHQEndpoint]
-            parameters:data
-               success:^(NSURLSessionDataTask *task, id responseObject) {
-                   if (completion) {
-                       completion(responseObject, nil);
-                   }
-               }
-               failure:^(NSURLSessionDataTask *task, NSError *error) {
-                   if (completion) {
-                       completion(nil, error);
-                   }
-               }];
-
-}
-
-- (void)textTagsAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion {
-    NSDictionary *data = @{@"data" : [texts firstObject]};
-    [self.manager POST:[LQIndicoEndpoints textTagsEndpoint]
-            parameters:data
-               success:^(NSURLSessionDataTask *task, id responseObject) {
-                   if (completion) {
-                       completion(responseObject, nil);
-                   }
-               }
-               failure:^(NSURLSessionDataTask *task, NSError *error) {
-                   if (completion) {
-                       completion(nil, error);
-                   }
-               }];
-}
-
-- (void)languageAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion {
-    NSDictionary *data = @{@"data" : [texts firstObject]};
-    [self.manager POST:[LQIndicoEndpoints languageEndpoint]
-            parameters:data
-               success:^(NSURLSessionDataTask *task, id responseObject) {
-                   if (completion) {
-                       completion(responseObject, nil);
-                   }
-               }
-               failure:^(NSURLSessionDataTask *task, NSError *error) {
-                   if (completion) {
-                       completion(nil, error);
-                   }
-               }];
-}
-
-- (void)politicalAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion {
-    NSDictionary *data = @{@"data" : [texts firstObject]};
-    [self.manager POST:[LQIndicoEndpoints politicalEndpoint]
+- (void)highQualitySentimentAnalysis:(NSArray *)text completionHandler:(LQDictionaryCompletionBlock)completion {
+    NSDictionary *data = @{@"data" : text};
+    [self.manager POST:[self urlStringFor:kIndicoSentimenHighQuality]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -126,9 +86,9 @@
 
 }
 
-- (void)keywordsAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion {
-    NSDictionary *data = @{@"data" : [texts firstObject]};
-    [self.manager POST:[LQIndicoEndpoints keywordEndpoint]
+- (void)textTagsAnalysis:(NSArray *)text completionHandler:(LQDictionaryCompletionBlock)completion {
+    NSDictionary *data = @{@"data" : text};
+    [self.manager POST:[self urlStringFor:kIndicoTextTags]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -142,9 +102,9 @@
                }];
 }
 
-- (void)namedEntitiesAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion {
-    NSDictionary *data = @{@"data" : [texts firstObject]};
-    [self.manager POST:[LQIndicoEndpoints namedEntitiesEndpoint]
+- (void)languageAnalysis:(NSArray *)text completionHandler:(LQDictionaryCompletionBlock)completion {
+    NSDictionary *data = @{@"data" : text};
+    [self.manager POST:[self urlStringFor:kIndicoLanguage]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -158,9 +118,58 @@
                }];
 }
 
-- (void)twitterEnagagementAnalysis:(NSArray *)texts completionHandler:(LQDictionaryCompletionBlock)completion {
-    NSDictionary *data = @{@"data" : [texts firstObject]};
-    [self.manager POST:[LQIndicoEndpoints twitterEngagementEndpoint]
+- (void)politicalAnalysis:(NSArray *)text completionHandler:(LQDictionaryCompletionBlock)completion {
+    NSDictionary *data = @{@"data" : text};
+    [self.manager POST:[self urlStringFor:kIndicoPolitical]
+            parameters:data
+               success:^(NSURLSessionDataTask *task, id responseObject) {
+                   if (completion) {
+                       completion(responseObject, nil);
+                   }
+               }
+               failure:^(NSURLSessionDataTask *task, NSError *error) {
+                   if (completion) {
+                       completion(nil, error);
+                   }
+               }];
+
+}
+
+- (void)keywordsAnalysis:(NSArray *)text completionHandler:(LQDictionaryCompletionBlock)completion {
+    NSDictionary *data = @{@"data" : text};
+    [self.manager POST:[self urlStringFor:kIndicoKeywords]
+            parameters:data
+               success:^(NSURLSessionDataTask *task, id responseObject) {
+                   if (completion) {
+                       completion(responseObject, nil);
+                   }
+               }
+               failure:^(NSURLSessionDataTask *task, NSError *error) {
+                   if (completion) {
+                       completion(nil, error);
+                   }
+               }];
+}
+
+- (void)namedEntitiesAnalysis:(NSArray *)text completionHandler:(LQDictionaryCompletionBlock)completion {
+    NSDictionary *data = @{@"data" : text};
+    [self.manager POST:[self urlStringFor:kIndicoNamedEntities]
+            parameters:data
+               success:^(NSURLSessionDataTask *task, id responseObject) {
+                   if (completion) {
+                       completion(responseObject, nil);
+                   }
+               }
+               failure:^(NSURLSessionDataTask *task, NSError *error) {
+                   if (completion) {
+                       completion(nil, error);
+                   }
+               }];
+}
+
+- (void)twitterEnagagementAnalysis:(NSArray *)text completionHandler:(LQDictionaryCompletionBlock)completion {
+    NSDictionary *data = @{@"data" : text};
+    [self.manager POST:[self urlStringFor:kIndicoTwitterEngagement]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -178,10 +187,9 @@
 // Image Analysis
 //---------------------------------------------------------------------------------------------------------------
 
-- (void)facialEmotionRecognitionAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion {
-    UIImage *image = [images firstObject];
+- (void)facialEmotionRecognitionAnalysis:(UIImage *)image completionHandler:(LQDictionaryCompletionBlock)completion {
     NSDictionary *data = @{@"data" : [image base64Encoding]};
-    [self.manager POST:[LQIndicoEndpoints facialEmotionRecognitionEndpoint]
+    [self.manager POST:[self urlStringFor:kIndicoFacialEmotionRecognition]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -195,10 +203,9 @@
                }];
 }
 
-- (void)imageFeaturesAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion{
-    UIImage *image = [images firstObject];
+- (void)imageFeaturesAnalysis:(UIImage *)image completionHandler:(LQDictionaryCompletionBlock)completion{
     NSDictionary *data = @{@"data" : [image base64Encoding]};
-    [self.manager POST:[LQIndicoEndpoints imageFeaturesEndpoint]
+    [self.manager POST:[self urlStringFor:kIndicoImageFeatures]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -212,10 +219,9 @@
                }];
 }
 
-- (void)facialFeatureAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion {
-    UIImage *image = [images firstObject];
+- (void)facialFeatureAnalysis:(UIImage *)image completionHandler:(LQDictionaryCompletionBlock)completion {
     NSDictionary *data = @{@"data" : [image base64Encoding]};
-    [self.manager POST:[LQIndicoEndpoints facialFeatureEndpoint]
+    [self.manager POST:[self urlStringFor:kIndicoFacialFeatures]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -229,10 +235,9 @@
                }];
 }
 
-- (void)facialLocalizationAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion{
-    UIImage *image = [images firstObject];
+- (void)facialLocalizationAnalysis:(UIImage *)image completionHandler:(LQDictionaryCompletionBlock)completion{
     NSDictionary *data = @{@"data" : [image base64Encoding]};
-    [self.manager POST:[LQIndicoEndpoints facialLocalizationEndpoint]
+    [self.manager POST:[self urlStringFor:kIndicoFacialLocalization]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -246,10 +251,9 @@
                }];
 }
 
-- (void)contentFilteringAnalysis:(NSArray *)images completionHandler:(LQDictionaryCompletionBlock)completion{
-    UIImage *image = [images firstObject];
+- (void)contentFilteringAnalysis:(UIImage *)image completionHandler:(LQDictionaryCompletionBlock)completion{
     NSDictionary *data = @{@"data" : [image base64Encoding]};
-    [self.manager POST:[LQIndicoEndpoints contentFilteringEndpoint]
+    [self.manager POST:[self urlStringFor:kIndicoContentFiltering]
             parameters:data
                success:^(NSURLSessionDataTask *task, id responseObject) {
                    if (completion) {
@@ -261,6 +265,12 @@
                        completion(nil, error);
                    }
                }];
+}
+
+#pragma mark - Helper
+
+- (NSString *)urlStringFor:(NSString *)api {
+    return [NSString stringWithFormat:@"%@key=%@", api, self.apiKey];
 }
 
 @end
