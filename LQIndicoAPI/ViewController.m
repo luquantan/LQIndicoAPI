@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-
+    [[LQNetworkManager sharedManager] setApiKey:@"56a69fcc2d30ad42bffee46159d3951e"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,42 +27,61 @@
 }
 
 - (IBAction)postTextTagPressed:(UIButton *)sender {
-    [[LQNetworkManager sharedManager] textTagsWithText:@"afsdfa" completionHandler:^(NSDictionary *result, NSError *error) {
+    [[LQNetworkManager sharedManager] textTagsAnalysis:@"What will the analysis yield on this one" completionHandler:^(NSDictionary *result, NSError *error) {
         if (!error) {
-            NSLog(@"IT worked");
-            NSLog(@"%@",[result valueForKeyPath:@"results.anime"]);
+            NSLog(@"Success");
         } else {
-            NSLog(@"Something went wrong!");
+            NSLog(@"Failure");
         }
     }];
 }
 
 - (IBAction)sentimentPressed:(UIButton *)sender {
-    [[LQNetworkManager sharedManager] sentimentAnalysisWithText:@"hahaha" completionHandler:^(NSDictionary *result, NSError *error) {
+    [[LQNetworkManager sharedManager] sentimentAnalysis:@"What will the analysis yield on this one" completionHandler:^(NSDictionary *result, NSError *error) {
         if (!error) {
-            NSLog(@"sentimentgood");
+            NSLog(@"Success");
         } else {
-            NSLog(@"sentiment bad");
+            NSLog(@"Failure");
         }
     }];
 }
 
 - (IBAction)languagePressed:(UIButton *)sender {
-    [[LQNetworkManager sharedManager] languageAnalysisWithText:@"apa bahasa ini" completionHandler:^(NSDictionary *result, NSError *error) {
+    [[LQNetworkManager sharedManager] languageAnalysis:@"He did not say siapa nama dia" completionHandler:^(NSDictionary *result, NSError *error) {
         if (!error) {
-            NSLog(@"language good");
+            NSLog(@"Success");
         } else {
-            NSLog(@"language bad");
+            NSLog(@"Failure");
         }
     }];
 }
 
 - (IBAction)politicalPressed:(UIButton *)sender {
-    [[LQNetworkManager sharedManager] politicalAnalysisWithText:@"i hate policy" completionHandler:^(NSDictionary *result, NSError *error) {
+    [[LQNetworkManager sharedManager] politicalAnalysis:@"i hate policy but love debate" completionHandler:^(NSDictionary *result, NSError *error) {
         if (!error) {
             NSLog(@"political success");
         } else {
             NSLog(@"Political failure");
+        }
+    }];
+}
+
+- (IBAction)facialEmotionPressed:(UIButton *)sender {
+    [[LQNetworkManager sharedManager] facialEmotionRecognitionAnalysis:[UIImage imageNamed:@"face"] completionHandler:^(NSDictionary *result, NSError *error) {
+        if (!error) {
+            NSLog(@"Success");
+        } else {
+            NSLog(@"Error");
+        }
+    }];
+}
+
+- (IBAction)facialFeaturePressed:(UIButton *)sender {
+    [[LQNetworkManager sharedManager] facialFeatureAnalysis:[UIImage imageNamed:@"face"] completionHandler:^(NSDictionary *result, NSError *error) {
+        if (!error) {
+            NSLog(@"Success");
+        } else {
+            NSLog(@"Failure");
         }
     }];
 }
