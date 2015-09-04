@@ -8,11 +8,11 @@ Pod::Spec.new do |s|
                    You can find more about them at https://indico.io/
                    DESC
   s.homepage     = "https://github.com/luquantan/LQIndicoAPI"
-  s.license      = "MIT"
+  s.license      = 'MIT'
   s.author             = "Lu Quan Tan"
   s.platform     = :ios, "6.0"
-  s.source       = { :git => "https://github.com/luquantan/LQIndicoAPI.git", :commit => "d0eb829a8ba8153286c2be1b17d030d745895fbd" }
-  s.source_files  = "LQIndicoAPI/Categories/UIImage+LQ.*", "LQIndicoAPI/Networking/LQNetworkManager.*" , "LQIndicoAPI/Indico Endpoint/LQIndicoEndpoints.*"
+  s.source       = { :git => "https://github.com/luquantan/LQIndicoAPI.git", :tag => 'v0.0.1' }
+  s.source_files  = "LQIndicoAPI/Categories/UIImage+LQ.{h,m}", "LQIndicoAPI/Networking/LQNetworkManager.{h,m}" , "LQIndicoAPI/Indico\ Endpoint/LQIndicoEndpoints.h"
   s.requires_arc = true
   s.dependency "AFNetworking", "~> 2.0"
 end
